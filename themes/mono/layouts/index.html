@@ -1,0 +1,26 @@
+{{ define "main" }}
+<div class="container">
+
+  <div class="boot-header">
+    <p class="boot-line">STEPINSKI-OS v1.0  (c) {{ now.Year }}</p>
+    <p class="boot-line">Ready.</p>
+    <p class="boot-title">{{ .Site.Title }}</p>
+    <p class="boot-sub">{{ .Site.Params.tagline }}</p>
+  </div>
+
+  <p class="section-label" style="margin-top:2rem;">posts</p>
+
+  <ul class="articles-list">
+    {{- $i := 1 }}
+    {{- range where .Site.RegularPages "Section" "articles" }}
+    <li class="article-item">
+      <span class="article-idx">{{ printf "%02d" $i }}</span>
+      <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+      <time class="article-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01" }}</time>
+    </li>
+    {{- $i = add $i 1 }}
+    {{- end }}
+  </ul>
+
+</div>
+{{ end }}

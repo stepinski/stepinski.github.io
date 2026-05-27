@@ -1,0 +1,34 @@
+<header>
+  <div class="container">
+    <div class="header-inner">
+
+      <a href="{{ "/" | relURL }}" class="logo" aria-label="{{ .Site.Title }}">
+        <span class="logo-prompt">guest</span>
+        <span class="logo-at">@</span>
+        <span class="logo-name">stepinski</span>
+        <span class="logo-cursor" aria-hidden="true"></span>
+      </a>
+
+      <nav aria-label="Main">
+        <a href="{{ "/" | relURL }}"{{ if .IsHome }} class="active"{{ end }}>articles</a>
+        <a href="{{ "/about" | relURL }}"{{ if eq .RelPermalink "/about/" }} class="active"{{ end }}>about</a>
+        <a href="{{ "/speaking" | relURL }}"{{ if eq .RelPermalink "/speaking/" }} class="active"{{ end }}>speaking</a>
+        {{- with .Site.Params.github }}
+        <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="external">github</a>
+        {{- end }}
+      </nav>
+
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">[menu]</button>
+
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-nav" aria-label="Mobile navigation">
+  <a href="{{ "/" | relURL }}">articles</a>
+  <a href="{{ "/about" | relURL }}">about</a>
+  <a href="{{ "/speaking" | relURL }}">speaking</a>
+  {{- with .Site.Params.github }}
+  <a href="{{ . }}" target="_blank" rel="noopener noreferrer">github</a>
+  {{- end }}
+</nav>

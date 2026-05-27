@@ -1,0 +1,19 @@
+baseURL = "https://piotrstepinski.com/"
+languageCode = "en-us"
+title = "Piotr Stępiński"
+theme = "mono"
+
+[params]
+  tagline = "CTO · Water Utility ML · Go"
+  description = "Writing on engineering, physics-informed ML, and building things that last."
+  github = "https://github.com/carldata"
+  linkedin = "https://www.linkedin.com/in/piotr-stepinski/"
+  email = "stepinski@yahoo.com"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3

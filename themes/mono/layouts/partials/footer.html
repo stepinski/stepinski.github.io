@@ -1,0 +1,19 @@
+<div class="container">
+  <hr class="footer-sep">
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <p class="footer-copy">{{ now.Year }} {{ .Site.Title }}</p>
+      <div class="footer-links">
+        {{- with .Site.Params.linkedin }}
+        <a href="{{ . }}" target="_blank" rel="noopener noreferrer">linkedin</a>
+        {{- end }}
+        {{- with .Site.Params.github }}
+        <a href="{{ . }}" target="_blank" rel="noopener noreferrer">github</a>
+        {{- end }}
+      </div>
+    </div>
+  </div>
+</footer>

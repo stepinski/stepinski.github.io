@@ -1,0 +1,41 @@
+{{ define "main" }}
+<div class="container">
+
+  <div class="article-header">
+    <p class="article-prompt">{{ .File.BaseFileName }}</p>
+    <h1 class="article-title">{{ .Title }}</h1>
+    {{- with .Description }}
+    <p class="article-subtitle">{{ . }}</p>
+    {{- end }}
+    <p class="article-meta">{{ .Date.Format "2006-01-02" }}</p>
+  </div>
+
+  <hr class="term-div">
+
+  <div class="prose">
+    {{ .Content }}
+  </div>
+
+  <span class="term-div-label">end of file</span>
+
+  <div class="subscribe-form">
+    <form action="#" onsubmit="return false;" class="subscribe-fields">
+      <input type="text" name="name" placeholder="name" autocomplete="off">
+      <input type="email" name="email" placeholder="email" autocomplete="off">
+      <button type="submit" class="subscribe-btn">subscribe</button>
+    </form>
+  </div>
+
+  <div class="share-row">
+    <a class="share-btn"
+       href="https://twitter.com/intent/tweet?url={{ .Permalink | urlize }}&text={{ .Title | urlize }}"
+       target="_blank" rel="noopener noreferrer">x/twitter</a>
+    <a class="share-btn"
+       href="https://www.linkedin.com/sharing/share-offsite/?url={{ .Permalink | urlize }}"
+       target="_blank" rel="noopener noreferrer">linkedin</a>
+    <a class="share-btn"
+       href="mailto:?subject={{ .Title | urlize }}&body={{ .Permalink | urlize }}">email</a>
+  </div>
+
+</div>
+{{ end }}
